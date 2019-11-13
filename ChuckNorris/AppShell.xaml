@@ -27,41 +27,7 @@
     </Shell.Resources>
 
 
-
-    <FlyoutItem Title="Colours" FlyoutDisplayOptions="AsSingleItem">
-    <ShellContent Title="sdasd" Route="sdasd">
-        <ContentPage/>
-      </ShellContent>
-    <ShellContent Title="ffff" Route="fffff">
-        <ContentPage/>
-      </ShellContent>
-      
-    <ShellContent Title="asda" Route="asda">
-    <ContentPage/>
-      </ShellContent>
-    
-  </FlyoutItem>
-  <FlyoutItem Title="Font Sizes">
-    <Tab>
-      <ShellContent>
-        <ContentPage/>
-      </ShellContent>
-    </Tab>
-  </FlyoutItem>
-  <FlyoutItem Title="Space" >
-    <Tab>
-      <ShellContent>
-        <ContentPage/>
-      </ShellContent>
-    </Tab>
-  </FlyoutItem>
-    
-
-      <ShellContent Title="PROVa" >
-        <ContentPage/>
-      </ShellContent>
-
-    <!--<TabBar>
+    <TabBar>
         <Tab Title="Browse" Icon="tab_feed.png">
             <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
         </Tab>
@@ -74,7 +40,7 @@
         <Tab Title="About" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>
-    </TabBar>-->
+    </TabBar>
 
      <!--<Shell.FlyoutHeader>
         <Grid BackgroundColor="Black" HeightRequest="200">
