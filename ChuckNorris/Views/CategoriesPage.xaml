@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:ChuckNorris.Controls"
+             mc:Ignorable="d" x:Class="ChuckNorris.Views.CategoriesPage"
+             Title="{Binding Title}" x:Name="BrowseCategoriesPage">
+    <StackLayout>
+        
+        <ListView x:Name="ItemsListView" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
+            <d:ListView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>First Item</x:String>
+                    <x:String>Second Item</x:String>
+                    <x:String>Third Item</x:String>
+                    <x:String>Fourth Item</x:String>
+                    <x:String>Fifth Item</x:String>
+                    <x:String>Sixth Item</x:String>
+                </x:Array>
+            </d:ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding .}" d:Text="{Binding .}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <!--<RefreshView Command="{Binding LoadItemsCommand}"
+                     IsRefreshing="{Binding IsBusy, Mode=OneWay}">
+             <CollectionView ItemsSource="{Binding Items}">
+    <CollectionView.ItemTemplate>
+        <DataTemplate>
+            <Grid Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Image Grid.RowSpan="2"
+                       Source="{Binding icon_url}"
+                       Aspect="AspectFit"
+                       HeightRequest="60"
+                       WidthRequest="60" />
+                <Label Grid.Column="1"
+                       Text="{Binding created_at}"
+                       FontAttributes="Bold" />
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="{Binding value}"
+                       FontAttributes="Italic"
+                       VerticalOptions="End" />
+            </Grid>
+        </DataTemplate>
+    </CollectionView.ItemTemplate>
+</CollectionView>
+        </RefreshView>-->
+        <!--<RefreshView Command="{Binding LoadItemsCommand}"
+                     IsRefreshing="{Binding IsBusy, Mode=OneWay}">
+            <CarouselView ItemsSource="{Binding Items}">
+                <CarouselView.ItemsLayout>
+        <LinearItemsLayout Orientation="Horizontal" />
+    </CarouselView.ItemsLayout>
+                 <CarouselView.ItemTemplate>
+        <DataTemplate>
+            <StackLayout>
+                <Frame HasShadow="True"
+                       BorderColor="DarkGray"
+                       CornerRadius="15"
+                       Margin="20"
+                       HeightRequest="500"
+                       HorizontalOptions="Center"
+                       VerticalOptions="CenterAndExpand">
+                    <StackLayout>
+                        <Label Text="{Binding value}"
+                               FontAttributes="Bold"
+                               FontSize="Large"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                        <Image Source="{Binding icon_url}"
+                               Aspect="AspectFill"
+                               HeightRequest="150"
+                               WidthRequest="150"
+                               HorizontalOptions="Center" />
+                        <Label Text="{Binding created_at}"
+                               HorizontalOptions="Center" />
+                        <Label Text="{Binding url}"
+                               FontAttributes="Italic"
+                               HorizontalOptions="Center"
+                               MaxLines="5"
+                               LineBreakMode="TailTruncation">
+                        </Label>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </DataTemplate>
+    </CarouselView.ItemTemplate>
+            </CarouselView>
+            </RefreshView>-->
+    </StackLayout>
+</ContentPage>
