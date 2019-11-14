@@ -9,5 +9,7 @@
         public static string Categories = BaseAddress + "/categories";
         public static string Search = BaseAddress + "/search?query={0}";
 
+        public static string Settings_MaxNumFacts = "MaxNumFacts";
+
     }
 }

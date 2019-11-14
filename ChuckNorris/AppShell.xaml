@@ -26,8 +26,7 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-
-    <TabBar>
+    <!--<TabBar>
         <Tab Title="Browse" Icon="tab_feed.png">
             <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
         </Tab>
@@ -40,9 +39,9 @@
         <Tab Title="About" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>
-    </TabBar>
+    </TabBar>-->
 
-     <!--<Shell.FlyoutHeader>
+     <Shell.FlyoutHeader>
         <Grid BackgroundColor="Black" HeightRequest="200">
             <Image Aspect="AspectFill" 
                    Source="ChuckColor.png" 
@@ -74,15 +73,15 @@
        </FlyoutItem>
 
      <ShellContent Route="about"
-                      
                       Title="About"
                       Icon="tab_about.png"
                       ContentTemplate="{DataTemplate local:AboutPage}" />
+    
 
-    <MenuItem Text="Random"
-            />
-    <MenuItem Text="Help"
-               />-->
+    <MenuItem Text="Settings" Command="{Binding OpenSettingsCommand}" />
+    
+
+
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.
 

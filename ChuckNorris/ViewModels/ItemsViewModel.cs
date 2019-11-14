@@ -2,11 +2,9 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
-
 using ChuckNorris.Models;
-using ChuckNorris.Views;
+using Xamarin.Essentials;
 
 namespace ChuckNorris.ViewModels
 {
@@ -33,7 +31,8 @@ namespace ChuckNorris.ViewModels
             try
             {
                 Items.Clear();
-                var items = await RestService.GetRandomFacts(15);
+                var maxitems = Preferences.Get("MaxNumFacts", 15);
+                var items = await RestService.GetRandomFacts(maxitems);
                 foreach (var item in items)
                 {
                     Items.Add(item);

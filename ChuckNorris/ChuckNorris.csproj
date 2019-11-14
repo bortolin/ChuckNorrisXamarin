@@ -13,4 +13,7 @@
   <ItemGroup>
     <Folder Include="Controls\" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="GlobalsSettings.cs" />
+  </ItemGroup>
 </Project>
