@@ -6,14 +6,13 @@
              mc:Ignorable="d"
              x:Class="ChuckNorris.Views.SettingsPage"
              Title="Settings">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
-        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
-    </ContentPage.ToolbarItems>
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior Command="{Binding BackCommand}" TextOverride="Save"  />
+    </Shell.BackButtonBehavior>
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="15">
             <Label Text="Max items to show" FontSize="Medium" />
-            <Entry Text="" d:Text="15" FontSize="Small" />
+            <Entry Text="{Binding MaxItemShow}" d:Text="15" FontSize="Small" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

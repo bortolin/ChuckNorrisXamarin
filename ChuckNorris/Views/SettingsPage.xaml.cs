@@ -6,6 +6,8 @@ using Xamarin.Forms.Xaml;
 
 using ChuckNorris.Models;
 using Xamarin.Essentials;
+using System.Windows.Input;
+using ChuckNorris.ViewModels;
 
 namespace ChuckNorris.Views
 {
@@ -13,7 +15,16 @@ namespace ChuckNorris.Views
     [DesignTimeVisible(false)]
     public partial class SettingsPage : ContentPage
     {
+
         public int MaxItemShow { get; set; }
+
+
+        public Command BackCommand => new Command(async () => {
+
+            Preferences.Set(Constants.Settings_MaxNumFacts, MaxItemShow);
+            await Shell.Current.Navigation.PopToRootAsync();
+
+        });
 
         public SettingsPage()
         {
@@ -25,14 +36,5 @@ namespace ChuckNorris.Views
             BindingContext = this;
         }
 
-        async void Save_Clicked(object sender, EventArgs e)
-        {           
-            await Navigation.PopModalAsync();
-        }
-
-        async void Cancel_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopModalAsync();
-        }
     }
 }
