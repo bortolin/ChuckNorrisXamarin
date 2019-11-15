@@ -10,7 +10,7 @@ namespace ChuckNorris.ViewModels
     {
         public string ItemId { get; set; }
 
-        public Command OpenFactLink => new Command(async () => await Launcher.OpenAsync(new Uri($"https://api.chucknorris.io/jokes/{ItemId}")));
+        public Command OpenFactLink => new Command(async () => await Browser.OpenAsync(new Uri($"https://api.chucknorris.io/jokes/{ItemId}"), new BrowserLaunchOptions() { PreferredToolbarColor = System.Drawing.Color.SkyBlue } ));
 
         public ItemDetailViewModel(string itemId)
         {

@@ -18,7 +18,6 @@ namespace ChuckNorris.ViewModels
             Title = "Facts";
             Items = new ObservableCollection<NorrisFact>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
-
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -31,7 +30,7 @@ namespace ChuckNorris.ViewModels
             try
             {
                 Items.Clear();
-                var maxitems = Preferences.Get("MaxNumFacts", 15);
+                var maxitems = Preferences.Get(Constants.Settings_MaxNumFacts, 15);
                 var items = await RestService.GetRandomFacts(maxitems);
                 foreach (var item in items)
                 {

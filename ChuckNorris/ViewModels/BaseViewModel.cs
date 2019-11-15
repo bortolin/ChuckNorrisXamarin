@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
 using Xamarin.Forms;
-
-using ChuckNorris.Models;
 using ChuckNorris.Services;
 
 namespace ChuckNorris.ViewModels

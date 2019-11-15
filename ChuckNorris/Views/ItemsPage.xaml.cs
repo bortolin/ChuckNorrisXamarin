@@ -25,9 +25,9 @@ namespace ChuckNorris.Views
             BindingContext = viewModel = new ItemsViewModel();
         }
 
-        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        async void OnListItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            
+
             var item = args.SelectedItem as NorrisFact;
             if (item == null)
                 return;
@@ -35,10 +35,20 @@ namespace ChuckNorris.Views
             await Shell.Current.GoToAsync($"itemdetail?id={item.id}");
 
             //// Manually deselect item.
-            ItemsListView.SelectedItem = null;
+            //ItemsListView.SelectedItem = null;
         }
 
-        
+        async void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var current = e.CurrentSelection;
+
+            if (current.Count == 1)
+            {
+                var item = e.CurrentSelection.FirstOrDefault() as NorrisFact;
+                await Shell.Current.GoToAsync($"itemdetail?id={item.id}");
+                //ItemsCollectionView.SelectedItem = null;
+            }
+        }
 
         protected override void OnAppearing()
         {

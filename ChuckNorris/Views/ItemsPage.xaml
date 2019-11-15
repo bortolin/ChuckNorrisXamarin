@@ -6,17 +6,10 @@
              xmlns:controls="clr-namespace:ChuckNorris.Controls"
              mc:Ignorable="d" x:Class="ChuckNorris.Views.ItemsPage"
              Title="{Binding Title}" x:Name="BrowseItemsPage">
-    <Shell.SearchHandler>
-        <controls:FactSearchHandler Placeholder="Search ..."
-                                      ShowsResults="true"
-                                      DisplayMemberName="value" />
-    </Shell.SearchHandler>
-    <ContentPage.ToolbarItems>
-        
-    </ContentPage.ToolbarItems>
+    
     <StackLayout>
-        
-        <ListView x:Name="ItemsListView" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
+        <!--Listview classic-->
+        <ListView x:Name="ItemsListView" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnListItemSelected">
             <d:ListView.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
                     <x:String>First Item</x:String>
@@ -42,9 +35,11 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <!--New CollectionView Control-->
         <!--<RefreshView Command="{Binding LoadItemsCommand}"
                      IsRefreshing="{Binding IsBusy, Mode=OneWay}">
-             <CollectionView ItemsSource="{Binding Items}">
+             <CollectionView ItemsSource="{Binding Items}" x:Name="ItemsCollectionView" SelectionMode="Single" SelectionChanged="OnCollectionViewSelectionChanged">
     <CollectionView.ItemTemplate>
         <DataTemplate>
             <Grid Padding="10">
@@ -74,9 +69,12 @@
     </CollectionView.ItemTemplate>
 </CollectionView>
         </RefreshView>-->
+
+        <!--New CarouselView Control-->
+
         <!--<RefreshView Command="{Binding LoadItemsCommand}"
                      IsRefreshing="{Binding IsBusy, Mode=OneWay}">
-            <CarouselView ItemsSource="{Binding Items}">
+            <CarouselView ItemsSource="{Binding Items}" >
                 <CarouselView.ItemsLayout>
         <LinearItemsLayout Orientation="Horizontal" />
     </CarouselView.ItemsLayout>
@@ -116,5 +114,13 @@
     </CarouselView.ItemTemplate>
             </CarouselView>
             </RefreshView>-->
+
     </StackLayout>
+
+    <!--<Shell.SearchHandler>
+        <controls:FactSearchHandler Placeholder="Search ..."
+                                      ShowsResults="true"
+                                      DisplayMemberName="value" />
+    </Shell.SearchHandler>-->
+
 </ContentPage>

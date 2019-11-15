@@ -10,7 +10,6 @@ namespace ChuckNorris
     public partial class AppShell : Xamarin.Forms.Shell
     {
 
-        //public Command OpenSettingsCommand => new Command(() => Navigation.PushModalAsync(new SettingsPage()));
         public Command OpenSettingsCommand => new Command(() => { Shell.Current.GoToAsync("settings"); Shell.Current.FlyoutIsPresented = false; });
 
         public AppShell()
