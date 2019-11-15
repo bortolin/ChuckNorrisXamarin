@@ -8,32 +8,19 @@ using ChuckNorris.ViewModels;
 
 namespace ChuckNorris.Views
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
-    [DesignTimeVisible(false)]
+    
+    [QueryProperty("ItemId", "id")]
     public partial class ItemDetailPage : ContentPage
     {
-        ItemDetailViewModel viewModel;
-
-        public ItemDetailPage(ItemDetailViewModel viewModel)
-        {
-            InitializeComponent();
-
-            BindingContext = this.viewModel = viewModel;
+        public string ItemId { set
+            {
+                BindingContext = new ItemDetailViewModel(value);
+            }
         }
 
         public ItemDetailPage()
         {
             InitializeComponent();
-
-            var item = new Item
-            {
-                Text = "Item 1",
-                Description = "This is an item description."
-            };
-
-            viewModel = new ItemDetailViewModel(item);
-            BindingContext = viewModel;
         }
     }
 }

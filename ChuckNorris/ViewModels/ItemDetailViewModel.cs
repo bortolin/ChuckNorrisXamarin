@@ -1,17 +1,20 @@
 ﻿using System;
 
 using ChuckNorris.Models;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace ChuckNorris.ViewModels
 {
     public class ItemDetailViewModel : BaseViewModel
     {
-        public Item Item { get; set; }
+        public string ItemId { get; set; }
 
-        public ItemDetailViewModel(Item item = null)
+        public Command OpenFactLink => new Command(async () => await Launcher.OpenAsync(new Uri($"https://api.chucknorris.io/jokes/{ItemId}")));
+
+        public ItemDetailViewModel(string itemId)
         {
-            Title = item?.Text;
-            Item = item;
+            ItemId = itemId;
         }
     }
 }

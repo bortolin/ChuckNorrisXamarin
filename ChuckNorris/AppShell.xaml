@@ -53,62 +53,31 @@
                    VerticalTextAlignment="Center" />
         </Grid>
     </Shell.FlyoutHeader>
-
     
-   <FlyoutItem Route="facts"
-                Title="Norris Facts"
-                FlyoutDisplayOptions="AsSingleItem">
+    <FlyoutItem Route="facts"
+        Icon="chuckface.png"
+        Title="Norris Facts"
+        FlyoutDisplayOptions="AsSingleItem">
 
         <ShellContent Route="feed"
-                      Title="Browse"
-                      Icon="tab_feed.png"
-                      ContentTemplate="{DataTemplate local:ItemsPage}" />
+            Title="Browse"
+            Icon="tab_feed.png"
+            ContentTemplate="{DataTemplate local:ItemsPage}" />
 
-       <ShellContent Route="categories"
-                      Title="Categories"
-                      Icon="tab_feed.png"
-                      ContentTemplate="{DataTemplate local:CategoriesPage}" />
+        <ShellContent Route="categories"
+            Title="Categories"                 
+            ContentTemplate="{DataTemplate local:CategoriesPage}" >
+                <ShellContent.Icon>
+                <FontImageSource FontFamily="{StaticResource Bootstrap}" Glyph="&#xe010;" />
+                </ShellContent.Icon>
+        </ShellContent>
+    </FlyoutItem>
 
-       
-       </FlyoutItem>
-
-     <ShellContent Route="about"
-                      Title="About"
-                      Icon="tab_about.png"
-                      ContentTemplate="{DataTemplate local:AboutPage}" />
-    
+    <ShellContent Route="about"
+        Title="About"
+        Icon="tab_about.png"
+        ContentTemplate="{DataTemplate local:AboutPage}" />
 
     <MenuItem Text="Settings" Command="{Binding OpenSettingsCommand}" />
-    
-
-
-    <!-- Optional Templates 
-    // These may be provided inline as below or as separate classes.
-
-    // This header appears at the top of the Flyout.
-    <Shell.FlyoutHeaderTemplate>
-        <DataTemplate>
-            <Grid>ContentHere</Grid>
-        </DataTemplate>
-    </Shell.FlyoutHeaderTemplate>
-
-    // ItemTemplate is for ShellItems as displayed in a Flyout
-    <Shell.ItemTemplate>
-        <DataTemplate>
-            <ContentView>
-                Bindable Properties: Title, Icon
-            </ContentView>
-        </DataTemplate>
-    </Shell.ItemTemplate>
-
-    // MenuItemTemplate is for MenuItems as displayed in a Flyout
-    <Shell.MenuItemTemplate>
-        <DataTemplate>
-            <ContentView>
-                Bindable Properties: Text, Icon
-            </ContentView>
-        </DataTemplate>
-    </Shell.MenuItemTemplate>
-
-    -->
+   
 </Shell>

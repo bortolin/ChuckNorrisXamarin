@@ -12,7 +12,6 @@ namespace ChuckNorris.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
         public IRestService RestService  => DependencyService.Get<IRestService>();
 
         bool isBusy = false;

@@ -13,10 +13,7 @@ namespace ChuckNorris
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
             DependencyService.Register<MockRestService>();
-
-
 
             MainPage = new AppShell();
         }

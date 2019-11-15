@@ -122,6 +122,7 @@
     <BundleResource Include="Resources\glyphicons-halflings-regular.ttf" />
     <BundleResource Include="Resources\ChuckColor.png" />
     <BundleResource Include="Resources\chnorrismok.png" />
+    <BundleResource Include="Resources\chuckface.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

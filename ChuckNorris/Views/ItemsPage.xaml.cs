@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ChuckNorris.ViewModels;
+using ChuckNorris.Models;
 
 namespace ChuckNorris.Views
 {
@@ -26,14 +27,15 @@ namespace ChuckNorris.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            //var item = args.SelectedItem as Item;
-            //if (item == null)
-            //    return;
+            
+            var item = args.SelectedItem as NorrisFact;
+            if (item == null)
+                return;
 
-            //await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
+            await Shell.Current.GoToAsync($"itemdetail?id={item.id}");
 
             //// Manually deselect item.
-            //ItemsListView.SelectedItem = null;
+            ItemsListView.SelectedItem = null;
         }
 
         
